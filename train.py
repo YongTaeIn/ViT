@@ -186,7 +186,9 @@ for epoch in range(1,epochs+1):
     test_loss,test_accuracy=evaluate(vit,valloader)
     print("\n[Epoch: {}],\t Test Loss : {:.4f},\tTest Accuracy :{:.2f} % \n".format
           (epoch, test_loss,test_accuracy))
-    
+
+    # test_loss 로 설정하면 val loss,  
+    # -test_accuracy 로 설정하면 val_accuracy로 동작함. 
     early_stopping(test_loss, vit)
         
     if test_loss < best_val_loss:
