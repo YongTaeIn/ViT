@@ -187,6 +187,8 @@ for epoch in range(1,epochs+1):
     print("\n[Epoch: {}],\t Test Loss : {:.4f},\tTest Accuracy :{:.2f} % \n".format
           (epoch, test_loss,test_accuracy))
     
+    early_stopping(test_loss, vit)
+        
     if test_loss < best_val_loss:
         best_val_loss = test_loss
         # Save the model when the validation loss improves
